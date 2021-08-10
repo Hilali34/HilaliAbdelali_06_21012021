@@ -28,7 +28,6 @@ exports.likeSauceManager = (req, res, next) => {
         Sauce.findOne({ _id: req.params.id })
             .then((sauce) => {
 
-                console.log(sauce)
                 if (like === 1) {
                     sauce.usersLiked.push(userId)
                     sauce.likes ++

@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require('dotenv').config();
 const mongoose = require("mongoose");
-const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
 const path = require("path");
 
@@ -11,7 +10,6 @@ const userRoutes = require("./routes/user");
 
 
 mongoose.connect( process.env.DB_CONNECT ,
-
     { useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log("Connexion à MongoDB réussie !"))
@@ -29,7 +27,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.use(mongoSanitize());
 app.use(helmet());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
