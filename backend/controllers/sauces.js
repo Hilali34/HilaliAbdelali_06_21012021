@@ -14,7 +14,7 @@ exports.createSauce = (req, res, next) => {
 };
 
 exports.modifySauce = (req, res, next) => {
-    Sauce.updateOne({_id: req.params.id}, {...req.body, _id: req.params.id})
+    Sauce.updateOne({_id: req.params.id}, {...req.body, _id: req.params.id, imageUrl:`${req.protocol}://${req.get("host")}/images/${req.file.filename}`})
         .then(() => res.status(200).json({message: "Objet modifié !"}))
         .catch(error => res.status(400).json({error}));
 };
