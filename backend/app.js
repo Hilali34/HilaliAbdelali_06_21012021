@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require('dotenv').config();
+require('dotenv').config({path:"./.env"});
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const path = require("path");
